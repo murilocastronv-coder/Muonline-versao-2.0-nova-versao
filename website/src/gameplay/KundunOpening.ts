@@ -29,7 +29,7 @@ export class KundunOpening {
     button.style.cssText = 'pointer-events:auto;background:#6c488e;color:white;border:1px solid #cdb4ed;border-radius:8px;padding:12px 24px;cursor:pointer';
     button.onclick = () => { this.destroy(); done(); };
     panel.append(title, image, status, button); overlay.append(panel); root.append(overlay); this.overlay = overlay;
-    const urls = (KUNDUN_OPENING_FRAMES[level - 1] ?? []).map(assetUrl);
+    const urls = (KUNDUN_OPENING_FRAMES[level - 1] ?? []).map(path => assetUrl(path));
     const finish = (): void => { if(serial !== this.serial) return; this.finished = true; status.textContent = reward; image.alt = 'Caixa aberta'; button.disabled = false; button.focus(); };
     // Load together so a slow connection cannot skip the opening frames.
     void Promise.all(urls.map(url => new Promise<void>(resolve => { const img = new Image(); img.onload = () => resolve(); img.onerror = () => resolve(); img.src = url; }))).then(() => {
