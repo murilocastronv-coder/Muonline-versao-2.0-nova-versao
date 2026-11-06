@@ -191,6 +191,24 @@
           "atlas_frame_pattern": "idle/animations/walk/{direction}/frame_{frame}"
         }
       ]
+    },
+    {
+      "id": "9c92dd15-1e8e-45ab-ba97-ed9213c39307",
+      "name": "Idle (copy)",
+      "folder": "idle-copy",
+      "directions": [
+        "south",
+        "east",
+        "north",
+        "west",
+        "south-east",
+        "north-east",
+        "north-west",
+        "south-west"
+      ],
+      "rotation_path_pattern": "idle-copy/rotations/{direction}.png",
+      "idle_atlas_frame_pattern": "idle-copy/rotations/{direction}",
+      "animations": []
     }
   ]
 }
