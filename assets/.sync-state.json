@@ -1354,6 +1354,16 @@
         "785aa7bd-06fa-48d7-bc15-c815d3b414b4"
       ],
       "sync_version": 16
+    },
+    "52291cdd-57c4-497c-879e-8e9d6ca4152a": {
+      "updated_at": "2026-11-06T16:09:54.381782+00:00",
+      "animation_ids": [],
+      "animation_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "name": "Montaria Taurina \u00c1urea",
+      "member_ids": [
+        "52291cdd-57c4-497c-879e-8e9d6ca4152a"
+      ],
+      "sync_version": 16
     }
   },
   "images": {},
