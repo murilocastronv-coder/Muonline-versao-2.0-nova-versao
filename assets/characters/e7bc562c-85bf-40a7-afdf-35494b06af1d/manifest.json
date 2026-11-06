@@ -39,7 +39,83 @@
       ],
       "rotation_path_pattern": "idle/rotations/{direction}.png",
       "idle_atlas_frame_pattern": "idle/rotations/{direction}",
-      "animations": []
+      "animations": [
+        {
+          "name": "attack",
+          "id": "255a59e7-0154-4907-9ccb-b7737d008b8f",
+          "source_name": "lead-jab",
+          "display_name": "Soco r\u00e1pido",
+          "description": "jab attack",
+          "generation_model": "template",
+          "frame_count": 3,
+          "directions": [
+            "south",
+            "east",
+            "north",
+            "west",
+            "south-east",
+            "north-east",
+            "north-west",
+            "south-west"
+          ],
+          "loop": false,
+          "aliases": [
+            "attack"
+          ],
+          "path_pattern": "idle/animations/attack/{direction}/frame_{frame}.png",
+          "atlas_frame_pattern": "idle/animations/attack/{direction}/frame_{frame}"
+        },
+        {
+          "name": "attack-d8fdbf25",
+          "id": "d8fdbf25-be23-4c54-bd14-a91dce2d94b1",
+          "source_name": "cross-punch",
+          "display_name": "Soco forte",
+          "description": "cross punch attack",
+          "generation_model": "template",
+          "frame_count": 6,
+          "directions": [
+            "south",
+            "east",
+            "north",
+            "west",
+            "south-east",
+            "north-east",
+            "north-west",
+            "south-west"
+          ],
+          "loop": false,
+          "aliases": [
+            "attack"
+          ],
+          "path_pattern": "idle/animations/attack-d8fdbf25/{direction}/frame_{frame}.png",
+          "atlas_frame_pattern": "idle/animations/attack-d8fdbf25/{direction}/frame_{frame}"
+        },
+        {
+          "name": "walk",
+          "id": "9df47793-1645-4c69-b1ca-f92fa51a3e23",
+          "source_name": "walking-6-frames",
+          "display_name": "Andar desarmado",
+          "description": "walking",
+          "generation_model": "template",
+          "frame_count": 6,
+          "directions": [
+            "south",
+            "east",
+            "north",
+            "west",
+            "south-east",
+            "north-east",
+            "north-west",
+            "south-west"
+          ],
+          "loop": true,
+          "aliases": [
+            "walk"
+          ],
+          "path_pattern": "idle/animations/walk/{direction}/frame_{frame}.png",
+          "atlas_frame_pattern": "idle/animations/walk/{direction}/frame_{frame}"
+        }
+      ]
     }
   ]
 }
