@@ -269,7 +269,7 @@ export class RealmRpg {
     if(action==="master"){if(this.nearMaster)this.showWindow("W");else this.banner("Aproxime-se do Mestre das Asas no refúgio.");return;}
     if(action==="kundun"||action.startsWith("kundun:")){
       if(!this.running||this.health<=0)return;
-      if(action!=="kundun"){const result=kundunAction(this.save,action);if(result){this.log(result);this.banner(result);this.persist();}}
+      if(action!=="kundun"){const result=kundunAction(this.save,action);if(result){this.log(result);for(const toast of this.root.querySelectorAll('.rpg-toast'))toast.remove();this.banner(result);this.persist();}}
       this.showWindow("K");this.render();return;
     }
     if(action==="sets"){if(this.running&&this.health>0)this.showWindow("S");return;}
