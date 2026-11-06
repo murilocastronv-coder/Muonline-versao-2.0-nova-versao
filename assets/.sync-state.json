@@ -1444,16 +1444,6 @@
       ],
       "sync_version": 16
     },
-    "a3465549-9dbe-4e4b-929e-9041eb8d2875": {
-      "updated_at": "2026-11-06T21:21:08.000788+00:00",
-      "animation_ids": [],
-      "animation_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "name": "Lorde Sombrio \u2014 Iniciante Desarmado",
-      "member_ids": [
-        "a3465549-9dbe-4e4b-929e-9041eb8d2875"
-      ],
-      "sync_version": 16
-    },
     "711bba78-5cdc-4813-b6bc-75fae771b629": {
       "updated_at": "2026-11-06T21:20:20.287141+00:00",
       "animation_ids": [],
@@ -1461,6 +1451,16 @@
       "name": "Gladiador \u2014 Iniciante Desarmado",
       "member_ids": [
         "711bba78-5cdc-4813-b6bc-75fae771b629"
+      ],
+      "sync_version": 16
+    },
+    "a3465549-9dbe-4e4b-929e-9041eb8d2875": {
+      "updated_at": "2026-11-06T21:21:08.000788+00:00",
+      "animation_ids": [],
+      "animation_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "name": "Lorde Sombrio \u2014 Iniciante Desarmado",
+      "member_ids": [
+        "a3465549-9dbe-4e4b-929e-9041eb8d2875"
       ],
       "sync_version": 16
     }
