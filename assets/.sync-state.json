@@ -1114,6 +1114,36 @@
         "dfbd2cd2-035e-4d98-97f1-7b64305ff6fe"
       ],
       "sync_version": 16
+    },
+    "a6266665-b6d3-4a04-adb5-c4ab0a7b21cb": {
+      "updated_at": "2026-11-06T12:48:49.310619+00:00",
+      "animation_ids": [],
+      "animation_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "name": "Senhor Minotauro",
+      "member_ids": [
+        "a6266665-b6d3-4a04-adb5-c4ab0a7b21cb"
+      ],
+      "sync_version": 16
+    },
+    "8c9ae77f-2206-496e-adf6-0f6dbc503986": {
+      "updated_at": "2026-11-06T12:48:47.100107+00:00",
+      "animation_ids": [],
+      "animation_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "name": "Arquilich",
+      "member_ids": [
+        "8c9ae77f-2206-496e-adf6-0f6dbc503986"
+      ],
+      "sync_version": 16
+    },
+    "6124e110-2675-4e65-9564-3978479b6880": {
+      "updated_at": "2026-11-06T12:48:54.787395+00:00",
+      "animation_ids": [],
+      "animation_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "name": "Rei Esqueleto",
+      "member_ids": [
+        "6124e110-2675-4e65-9564-3978479b6880"
+      ],
+      "sync_version": 16
     }
   },
   "images": {},
