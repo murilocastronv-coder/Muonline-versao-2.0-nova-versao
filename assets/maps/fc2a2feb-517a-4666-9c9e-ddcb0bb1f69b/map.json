@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Noria",
-  "exportDate": "2026-11-06T07:24:01.394533Z",
+  "exportDate": "2026-11-06T19:17:51.775125Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 16,
@@ -22,14 +22,14 @@
     {
       "id": 1,
       "name": "deep emerald forest floor featuring tangled dark roots and sprawling soft moss patches in medium detail with basic shading",
-      "color": "#4a9eff",
+      "color": "#15803d",
       "baseTileId": "97613161-fadb-4b80-816c-cc3a1e4b2c7d",
       "walkable": null
     },
     {
       "id": 2,
       "name": "bright green grassy woodland clearing dotted with tiny wildflowers across gentle turf in medium detail with basic shading",
-      "color": "#7dd87d",
+      "color": "#22c55e",
       "baseTileId": "7b8246cc-3b0a-480e-bfc0-70af0e3ee81b",
       "walkable": null
     }

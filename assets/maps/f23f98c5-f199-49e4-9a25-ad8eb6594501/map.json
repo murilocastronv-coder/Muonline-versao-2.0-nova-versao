@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Dungeon 3",
-  "exportDate": "2026-11-05T18:58:55.274260Z",
+  "exportDate": "2026-11-06T19:17:42.902608Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 16,
@@ -22,14 +22,14 @@
     {
       "id": 1,
       "name": "dark underground bedrock wall with massive rough stone blocks in flat solid charcoal tones, no gradients or shadows",
-      "color": "#4a9eff",
+      "color": "#6b7280",
       "baseTileId": "1eabed08-3663-4301-bbc3-7ede6da6c086",
       "walkable": null
     },
     {
       "id": 2,
       "name": "ancient cracked gray flagstone floor in a gothic crypt with heavy mortar lines in flat solid stone tones, no gradients or shadows",
-      "color": "#7dd87d",
+      "color": "#9ca3af",
       "baseTileId": "4f3eeefb-0d93-4603-908a-29fe78518e91",
       "walkable": null
     }

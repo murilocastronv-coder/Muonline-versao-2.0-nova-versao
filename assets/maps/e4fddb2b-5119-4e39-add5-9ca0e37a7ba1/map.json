@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Arena / Stadium",
-  "exportDate": "2026-11-05T18:59:14.324571Z",
+  "exportDate": "2026-11-06T19:17:46.900582Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 16,
@@ -22,14 +22,14 @@
     {
       "id": 1,
       "name": "arena stadium rough gray outer flagstones with weathered surfaces and simple joint lines in flat uniform color",
-      "color": "#4a9eff",
+      "color": "#9ca3af",
       "baseTileId": "553e351b-5d5c-42d1-9ade-351e2fe66742",
       "walkable": null
     },
     {
       "id": 2,
       "name": "arena stadium red brown packed training sand with fine grain texture and subtle stone seams in flat uniform color",
-      "color": "#7dd87d",
+      "color": "#f59e0b",
       "baseTileId": "e0e63ee7-2443-40c5-a3c5-16cd0d1c53f2",
       "walkable": null
     }

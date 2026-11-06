@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Lost Tower 7",
-  "exportDate": "2026-11-05T18:59:07.445077Z",
+  "exportDate": "2026-11-06T19:17:45.446032Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 16,
@@ -22,14 +22,14 @@
     {
       "id": 1,
       "name": "deep dark violet abyss with flat solid void tone and sparse subtle rift marks",
-      "color": "#4a9eff",
+      "color": "#9ca3af",
       "baseTileId": "d79b54eb-5b90-4612-a8e2-562b5ef59df8",
       "walkable": null
     },
     {
       "id": 2,
       "name": "dark obsidian violet stone floor with flat solid stone tones and sparse faint arcane runes",
-      "color": "#7dd87d",
+      "color": "#9ca3af",
       "baseTileId": "461a3d35-c601-4943-b092-b812c17bc79d",
       "walkable": null
     }

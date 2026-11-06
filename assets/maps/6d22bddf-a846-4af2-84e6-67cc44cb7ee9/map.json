@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Blood Castle",
-  "exportDate": "2026-11-05T18:59:18.370560Z",
+  "exportDate": "2026-11-06T19:17:48.649116Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 16,
@@ -22,14 +22,14 @@
     {
       "id": 1,
       "name": "deep crimson abyss with a flat uniform dark red void and sparse subtle black fissures, rendered in flat solid color with no gradients or shadows",
-      "color": "#4a9eff",
+      "color": "#9ca3af",
       "baseTileId": "dd3e98c9-903e-4a6e-acf4-083ba49a417e",
       "walkable": null
     },
     {
       "id": 2,
       "name": "gothic silver gray flagstones interlocking with a dark red carpet center, featuring moderate surface texture and simple two-tone light and shadow",
-      "color": "#7dd87d",
+      "color": "#9ca3af",
       "baseTileId": "0e24116e-f2a9-4da5-9071-be35d64c6630",
       "walkable": null
     }

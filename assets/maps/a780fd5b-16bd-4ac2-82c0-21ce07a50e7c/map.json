@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Devias",
-  "exportDate": "2026-11-06T07:24:05.051102Z",
+  "exportDate": "2026-11-06T19:17:53.124394Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 16,
@@ -22,14 +22,14 @@
     {
       "id": 1,
       "name": "frozen blue ice ground with vast smooth sheets, subtle frost fractures, and pale cyan undertones in flat solid hues",
-      "color": "#4a9eff",
+      "color": "#bfdbfe",
       "baseTileId": "fa8718fb-92ba-4855-81e3-c6e445c6b7e8",
       "walkable": null
     },
     {
       "id": 2,
       "name": "snowy medieval road surface composed of pale cobblestones heavily blanketed in drifted winter snow in flat solid tones",
-      "color": "#7dd87d",
+      "color": "#e5e7eb",
       "baseTileId": "1ccbb182-478b-41f9-aa71-f8da93c734e0",
       "walkable": null
     }

@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Icarus",
-  "exportDate": "2026-11-05T18:59:12.652804Z",
+  "exportDate": "2026-11-06T19:17:46.547713Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 16,
@@ -22,14 +22,14 @@
     {
       "id": 1,
       "name": "azure sky with soft white clouds drifting across an even atmospheric expanse",
-      "color": "#4a9eff",
+      "color": "#9ca3af",
       "baseTileId": "cdbb6811-7cb8-41d6-b34e-aac632c71cdd",
       "walkable": null
     },
     {
       "id": 2,
       "name": "floating ivory stone surface inlaid with gleaming gold leaf accents",
-      "color": "#7dd87d",
+      "color": "#9ca3af",
       "baseTileId": "6b2449b1-caa8-40ac-9add-3b9f7f1f883f",
       "walkable": null
     }

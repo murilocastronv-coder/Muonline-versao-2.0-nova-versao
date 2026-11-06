@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Exile",
-  "exportDate": "2026-11-05T18:59:16.112738Z",
+  "exportDate": "2026-11-06T19:17:47.502556Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 16,
@@ -22,14 +22,14 @@
     {
       "id": 1,
       "name": "bleak charcoal wasteland earth with stark fissures and fractured dry soil plates in flat uniform color, no gradients or shadows",
-      "color": "#4a9eff",
+      "color": "#9ca3af",
       "baseTileId": "57660cce-85ac-4069-bf30-9871b12acafb",
       "walkable": null
     },
     {
       "id": 2,
       "name": "ashen gray ruined stone road surface with fragmented flagstones and sickly green toxic fissures in flat uniform color, no gradients or shadows",
-      "color": "#7dd87d",
+      "color": "#9ca3af",
       "baseTileId": "8b7c8664-ab21-4cbc-9935-438d4b998e23",
       "walkable": null
     }
