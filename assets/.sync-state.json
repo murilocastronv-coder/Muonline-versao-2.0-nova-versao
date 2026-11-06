@@ -1434,13 +1434,13 @@
       ],
       "sync_version": 16
     },
-    "711bba78-5cdc-4813-b6bc-75fae771b629": {
-      "updated_at": "2026-11-06T21:20:20.287141+00:00",
+    "00efc997-1c47-4ed8-af0d-ade9db50967a": {
+      "updated_at": "2026-11-06T21:20:54.161353+00:00",
       "animation_ids": [],
       "animation_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "name": "Gladiador \u2014 Iniciante Desarmado",
+      "name": "Arqueiro Elfa \u2014 Iniciante Desarmada",
       "member_ids": [
-        "711bba78-5cdc-4813-b6bc-75fae771b629"
+        "00efc997-1c47-4ed8-af0d-ade9db50967a"
       ],
       "sync_version": 16
     },
@@ -1454,13 +1454,13 @@
       ],
       "sync_version": 16
     },
-    "00efc997-1c47-4ed8-af0d-ade9db50967a": {
-      "updated_at": "2026-11-06T21:20:54.161353+00:00",
+    "711bba78-5cdc-4813-b6bc-75fae771b629": {
+      "updated_at": "2026-11-06T21:20:20.287141+00:00",
       "animation_ids": [],
       "animation_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-      "name": "Arqueiro Elfa \u2014 Iniciante Desarmada",
+      "name": "Gladiador \u2014 Iniciante Desarmado",
       "member_ids": [
-        "00efc997-1c47-4ed8-af0d-ade9db50967a"
+        "711bba78-5cdc-4813-b6bc-75fae771b629"
       ],
       "sync_version": 16
     }
