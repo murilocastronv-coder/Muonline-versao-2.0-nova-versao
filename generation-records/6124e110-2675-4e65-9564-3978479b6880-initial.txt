@@ -1,0 +1,5 @@
+status: creating (44% ~106s)
+id: 6124e110-2675-4e65-9564-3978479b6880
+name: Rei Esqueleto
+
+hint: template-mode animate_character can be queued now (runs after creation completes); v3/pro animations must wait until status=completed

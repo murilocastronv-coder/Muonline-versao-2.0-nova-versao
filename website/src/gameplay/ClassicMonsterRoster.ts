@@ -1,6 +1,10 @@
 // Configurable gameplay balance, inspired by classic MU; not official server data.
-export interface ClassicMonster { id: string; name: string; map: string; level: number; hp: number; damage: number; defense: number; exp: number; zen: number; respawnMs: number; dropChance: number; ranged?: boolean; }
+export interface ClassicMonster { id: string; name: string; map: string; level: number; hp: number; damage: number; defense: number; exp: number; zen: number; respawnMs: number; dropChance: number; ranged?: boolean; boss?: boolean; }
 export const CLASSIC_MONSTERS: ClassicMonster[] = [
+ {id:'6124e110-2675-4e65-9564-3978479b6880',name:'Rei Esqueleto',map:'Dungeon 3',boss:true,level:40,hp:1600,damage:28,defense:10,exp:850,zen:450,respawnMs:90000,dropChance:1},
+ {id:'8c9ae77f-2206-496e-adf6-0f6dbc503986',name:'Arquilich',map:'Lost Tower 7',boss:true,level:60,hp:2400,damage:36,defense:14,exp:1400,zen:700,respawnMs:120000,dropChance:1,ranged:true},
+ {id:'a6266665-b6d3-4a04-adb5-c4ab0a7b21cb',name:'Senhor Minotauro',map:'Tarkan',boss:true,level:75,hp:3200,damage:42,defense:18,exp:1900,zen:950,respawnMs:150000,dropChance:1},
+ {id:'785aa7bd-06fa-48d7-bc15-c815d3b414b4',name:'Titã de Gelo',map:'Devias',boss:true,level:45,hp:1900,damage:31,defense:12,exp:1050,zen:550,respawnMs:100000,dropChance:1}, 
  {id:'88f0a8e6-a227-4ff3-af68-6d70d10fe862',name:'Bull Fighter',map:'Lorencia',level:6,hp:90,damage:9,defense:2,exp:30,zen:14,respawnMs:14000,dropChance:.24},
  {id:'b45625d2-31b9-473e-bff4-95f39090aa44',name:'Hound',map:'Lorencia',level:9,hp:105,damage:11,defense:3,exp:38,zen:18,respawnMs:14000,dropChance:.24},
  {id:'05f6621d-3a21-4b64-891f-ea07544ab4df',name:'Lich',map:'Lorencia',level:14,hp:115,damage:14,defense:3,exp:48,zen:24,respawnMs:16000,dropChance:.28,ranged:true},

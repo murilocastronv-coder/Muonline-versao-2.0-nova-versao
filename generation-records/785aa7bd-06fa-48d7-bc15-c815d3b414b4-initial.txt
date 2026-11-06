@@ -1,0 +1,5 @@
+status: creating (42% ~92s)
+id: 785aa7bd-06fa-48d7-bc15-c815d3b414b4
+name: Titã de Gelo
+
+hint: template-mode animate_character can be queued now (runs after creation completes); v3/pro animations must wait until status=completed

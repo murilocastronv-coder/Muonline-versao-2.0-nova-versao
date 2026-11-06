@@ -1,0 +1,5 @@
+status: creating (44% ~98s)
+id: 8c9ae77f-2206-496e-adf6-0f6dbc503986
+name: Arquilich
+
+hint: template-mode animate_character can be queued now (runs after creation completes); v3/pro animations must wait until status=completed

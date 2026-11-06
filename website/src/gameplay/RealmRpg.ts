@@ -146,17 +146,20 @@ export class RealmRpg {
   private createMobs(): void {
 
     const mapName = WORLD_DESTINATIONS.find(d=>d.id===this.map.folder)?.name;
-    const roster=CLASSIC_MONSTERS.filter(m=>m.map===mapName);
+    const roster=CLASSIC_MONSTERS.filter(m=>m.map===mapName).sort((a,b)=>Number(!!a.boss)-Number(!!b.boss));
     if(roster.length) {
-      roster.flatMap((kind,i)=>monsterHomes(i).map(home=>({kind,home}))).forEach(({kind,home:desired})=>{
+      roster.flatMap((kind,i)=>{
+        const homes=townName(this.map.folder)?monsterHomes(i):[{x:this.home.x+170,y:this.home.y+100},{x:this.home.x-170,y:this.home.y+100},{x:this.home.x+100,y:this.home.y-160}];
+        return (kind.boss?homes.slice(0,1):homes).map(home=>({kind,home}));
+      }).forEach(({kind,home:desired})=>{
         const home=nearestWalkable(this.map,desired,COLLIDER,14);
         if(!home||this.inSafeZone(home)||!findPath(this.map,this.home,home,COLLIDER))return;
         const agent=new CharacterAgent(this.scene,this.map,{atlasKey:characterAtlasKey(kind.id),manifest:characterManifest(this.scene,kind.id),id:`classic-${kind.name}`,role:"monster",x:home.x,y:home.y,footOffsetY:10,roaming:false});
-        agent.sprite.setScale(.5);
-        const mob:Mob={classic:kind,attackMs:0,strikeAt:0,struck:false,hurtMs:0,facing:"south",agent,sprite:agent.sprite,home,health:kind.hp,max:kind.hp,boss:false,path:[],repath:0,cooldown:1200,dead:0,hitRadius:14,label:this.scene.add.text(home.x,home.y-32,`${kind.name} · Nv.${kind.level}`,{fontFamily:"Arial",fontSize:"8px",color:"#e0d5bd",stroke:"#101414",strokeThickness:3}).setOrigin(.5),bar:this.scene.add.graphics(),hit:(x,y,strength)=>this.hitMob(mob,x,y,strength)};
+        agent.sprite.setScale(kind.boss?.6:.5);
+        const mob:Mob={classic:kind,attackMs:0,strikeAt:0,struck:false,hurtMs:0,facing:"south",agent,sprite:agent.sprite,home,health:kind.hp,max:kind.hp,boss:!!kind.boss,path:[],repath:0,cooldown:1200,dead:0,hitRadius:kind.boss?19:14,label:this.scene.add.text(home.x,home.y-32,`${kind.boss?'BOSS · ':''}${kind.name} · Nv.${kind.level}`,{fontFamily:"Arial",fontSize:kind.boss?"9px":"8px",color:kind.boss?"#ffd378":"#e0d5bd",stroke:"#101414",strokeThickness:3}).setOrigin(.5),bar:this.scene.add.graphics(),hit:(x,y,strength)=>this.hitMob(mob,x,y,strength)};
         this.mobs.push(mob);
       });
-      return;
+      if(townName(this.map.folder))return;
     }
     const offsets = [[70,60],[-65,100],[145,90],[-120,40],[100,175],[-100,190],[205,155]];
     offsets.forEach(([dx,dy],i) => {

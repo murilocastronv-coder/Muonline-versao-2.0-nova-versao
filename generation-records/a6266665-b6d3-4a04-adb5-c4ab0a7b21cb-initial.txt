@@ -1,0 +1,5 @@
+status: creating (44% ~92s)
+id: a6266665-b6d3-4a04-adb5-c4ab0a7b21cb
+name: Senhor Minotauro
+
+hint: template-mode animate_character can be queued now (runs after creation completes); v3/pro animations must wait until status=completed
