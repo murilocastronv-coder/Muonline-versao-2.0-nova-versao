@@ -66,6 +66,31 @@
           "atlas_frame_pattern": "idle/animations/attack/{direction}/frame_{frame}"
         },
         {
+          "name": "attack-fc9292e6",
+          "id": "fc9292e6-a011-4fba-90cf-69766abe0555",
+          "source_name": "cross-punch",
+          "display_name": "Soco forte",
+          "description": "cross punch attack",
+          "generation_model": "template",
+          "frame_count": 6,
+          "directions": [
+            "south",
+            "east",
+            "north",
+            "west",
+            "south-east",
+            "north-east",
+            "north-west",
+            "south-west"
+          ],
+          "loop": false,
+          "aliases": [
+            "attack"
+          ],
+          "path_pattern": "idle/animations/attack-fc9292e6/{direction}/frame_{frame}.png",
+          "atlas_frame_pattern": "idle/animations/attack-fc9292e6/{direction}/frame_{frame}"
+        },
+        {
           "name": "walk",
           "id": "8ba7c554-ad79-4b8e-8aab-60d59f38f198",
           "source_name": "walking-6-frames",
