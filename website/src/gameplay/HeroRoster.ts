@@ -1,4 +1,5 @@
 import type Phaser from "phaser";
+import { UNARMED_HEROES } from "./UnarmedHeroes";
 import { preloadCharacterAtlas, characterAssetUrl, characterManifest, characterRotationFrameName, selectCharacterState } from "../shared/animation";
 
 export const HEROES = [
@@ -11,8 +12,10 @@ export const HEROES = [
 export type HeroClass = typeof HEROES[number]["name"];
 export function preloadHeroes(scene: Phaser.Scene): void {
   for (const hero of HEROES) preloadCharacterAtlas(scene, hero.id);
+  for (const id of Object.values(UNARMED_HEROES)) preloadCharacterAtlas(scene, id);
 }
 export function heroPreview(scene: Phaser.Scene, hero: typeof HEROES[number]): string {
-  const state = selectCharacterState(characterManifest(scene, hero.id));
-  return characterAssetUrl(hero.id, `${characterRotationFrameName(state.stateFolder, "south")}.png`);
+  const id = UNARMED_HEROES[hero.name] ?? hero.id;
+  const state = selectCharacterState(characterManifest(scene, id));
+  return characterAssetUrl(id, `${characterRotationFrameName(state.stateFolder, "south")}.png`);
 }

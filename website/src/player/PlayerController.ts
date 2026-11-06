@@ -75,6 +75,8 @@ export class PlayerController {
   private jumpSpeed = 0;
   private visualYOffset = 0;
   private jumping = false;
+  private unarmed: boolean = false;
+  private nextPunchStrong: boolean = false;
   private activeAction: ActivePlayerAction | null = null;
   private actionElapsedMs = 0;
 
@@ -125,7 +127,9 @@ export class PlayerController {
     this.playRole(["idle"]);
   }
 
-  setCharacter(characterId: string): void {
+  setCharacter(characterId: string, unarmed = false): void {
+    this.unarmed = unarmed;
+    this.nextPunchStrong = false;
     const manifest = characterManifest(this.sprite.scene, characterId);
     const selected = selectCharacterState(manifest, { preferredClips: ["walk"] });
     this.activeAction = null;
@@ -306,7 +310,13 @@ export class PlayerController {
 
   private startAction(actionName: PlayerActionName): boolean {
     if (this.activeAction || this.actionElapsedMs > 0) return false;
-    const action = this.resolveAnimation(["Ataque de Espada", "Ataque de Cajado", "Ataque de Arco", actionName]);
+    const punch = this.unarmed;
+    const strong = actionName === "spell" || this.nextPunchStrong;
+    const action = this.resolveAnimation(punch ? [strong ? "cross-punch" : "lead-jab"] : ["Ataque de Espada", "Ataque de Cajado", "Ataque de Arco", actionName]);
+    if (punch && action) {
+      this.nextPunchStrong = !strong;
+      actionName = "slash";
+    }
     if (!action) {
       // These heroes have walking clips only: retain combat without inventing attack art.
       if (this.actionElapsedMs > 0) return false;
@@ -317,7 +327,7 @@ export class PlayerController {
     }
     const clip = action.animations[action.clipName];
     const fps = clip.fps ?? GAME_CONFIG.animation.fps;
-    const effectFrame = action.animation.display_name?.startsWith("Ataque") ? 4 : actionName === "spell" ? SPELL_CAST_FRAME_DELAY : SLASH_SWING_FRAME_DELAY;
+    const effectFrame = punch ? Math.min(clip.frameCount - 1, Math.max(1, Math.floor(clip.frameCount / 2))) : action.animation.display_name?.startsWith("Ataque") ? 4 : actionName === "spell" ? SPELL_CAST_FRAME_DELAY : SLASH_SWING_FRAME_DELAY;
     this.activeAction = {
       ...action,
       name: actionName,
