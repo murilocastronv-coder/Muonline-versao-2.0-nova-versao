@@ -2393,6 +2393,17 @@
       ],
       "sync_version": 3
     },
+    "5e2f3c12-e231-4a6a-b72e-266944089625": {
+      "updated_at": "2026-11-06T19:45:54.698551+00:00",
+      "animation_ids": [
+        "cbcd13a2-2941-4f0d-836e-80a1471870db"
+      ],
+      "name": "base",
+      "member_ids": [
+        "5e2f3c12-e231-4a6a-b72e-266944089625"
+      ],
+      "sync_version": 3
+    },
     "75d696a3-76b6-4a21-a03c-5e3f7469d72a": {
       "updated_at": "2026-11-06T19:45:54.698551+00:00",
       "animation_ids": [
@@ -2434,17 +2445,6 @@
       "name": "base",
       "member_ids": [
         "f6a3012d-7b75-4410-be1a-740218845571"
-      ],
-      "sync_version": 3
-    },
-    "5e2f3c12-e231-4a6a-b72e-266944089625": {
-      "updated_at": "2026-11-06T19:45:54.698551+00:00",
-      "animation_ids": [
-        "cbcd13a2-2941-4f0d-836e-80a1471870db"
-      ],
-      "name": "base",
-      "member_ids": [
-        "5e2f3c12-e231-4a6a-b72e-266944089625"
       ],
       "sync_version": 3
     }
