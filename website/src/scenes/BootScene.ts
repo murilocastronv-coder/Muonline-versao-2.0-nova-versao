@@ -8,6 +8,8 @@ import { FireProjectileSystem } from "../gameplay/FireProjectileSystem";
 import { HeroWings } from "../gameplay/HeroWings";
 import { preloadHeroes } from "../gameplay/HeroRoster";
 import { preloadWorldRoster } from "../gameplay/WorldRoster";
+import { preloadCharacterAtlas } from "../shared/animation";
+import { AUREA_MOUNT } from "../gameplay/MountCatalog";
 
 export const MAP_DATA_REGISTRY_KEY = "pixellab-map-data";
 
@@ -76,6 +78,7 @@ export class BootScene extends Phaser.Scene {
     preloadMapAssets(this, mapData);
     PlayerController.preload(this);
     preloadHeroes(this);
+    preloadCharacterAtlas(this, AUREA_MOUNT.id);
     preloadWorldRoster(this);
     HeroWings.preload(this);
     FireProjectileSystem.preload(this);

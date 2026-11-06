@@ -1,4 +1,5 @@
 import { TownExplorer } from '../gameplay/TownExplorer';
+import { MountPreview } from '../gameplay/MountPreview';
 import Phaser from "phaser";
 import { GAME_CONFIG } from "../config";
 import { HudOverlay } from "../hud/HudOverlay";
@@ -27,6 +28,7 @@ export class GameScene extends Phaser.Scene {
   private rpg!: RealmRpg;
   private clickTravel!: ClickTravel;
   private towns!: TownExplorer;
+  private mountPreview!: MountPreview;
 
   constructor() {
     super("GameScene");
@@ -49,6 +51,7 @@ export class GameScene extends Phaser.Scene {
     this.hud = new HudOverlay();
     this.hud.setText([]);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.mountPreview.destroy();
       this.towns.destroy();
       this.rpg.destroy();
       this.hud.destroy();
@@ -57,6 +60,7 @@ export class GameScene extends Phaser.Scene {
 
     // === NEW SYSTEMS (add new module instances here) ===
     this.rpg = new RealmRpg(this, this.player, this.mapData);
+    this.mountPreview = new MountPreview(this);
     this.clickTravel = new ClickTravel(this,this.player,this.mapData,()=>this.rpg.active);
     this.towns = new TownExplorer(this,this.player,this.mapData,()=>this.rpg.active,id=>(window as unknown as {rpgAction:(a:string)=>void}).rpgAction(`travel:${id}`));
     this.rpg.setTravelHandler(async id => {
@@ -121,6 +125,7 @@ export class GameScene extends Phaser.Scene {
     }
     this.rpg.update(deltaMs);
     this.towns.update();
+    this.mountPreview.update(deltaMs);
     // === NEW UPDATES (add new update calls here) ===
     this.multiplayer.update(deltaMs);
   }
