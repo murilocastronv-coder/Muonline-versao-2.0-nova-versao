@@ -1,4 +1,5 @@
 import { KUNDUN_BOXES, grantBox, kundunAction, kundunHtml } from './KundunBoxes';
+import { KundunOpening } from './KundunOpening';
 import { ARMOR_ITEMS, gearState, gearHtml, type GearSave } from './ArmorSets';
 import { insideTown, townName, monsterHomes, SAFE_POLYGON } from './TownLayout';
 import Phaser from "phaser";
@@ -37,6 +38,7 @@ export class RealmRpg {
   private save: Save = { wings: false, name: "Viajante", hero: "Cavaleiro", level: 1, xp: 0, gold: 0, kills: 0, quest: 0, weapon: 0, armor: 0, potions: 5, points: 0, strength: 0, vitality: 0, items: 0 };
   private selected: HeroClass = "Cavaleiro";
   private running: boolean = false;
+  private kundunOpening = new KundunOpening();
   private wasSafe: boolean = true;
   private health: number = 120;
   private mana: number = 80;
@@ -72,7 +74,7 @@ export class RealmRpg {
     this.heroLabel = scene.add.text(player.sprite.x, player.sprite.y - 40, "", { fontFamily: "Arial", fontSize: "9px", color: "#ead398", stroke: "#11171c", strokeThickness: 3 }).setOrigin(.5).setDepth(200000);
     this.createMobs(); this.createWingMaster(); this.startScreen(); this.render();
     const hooks = window as unknown as Record<string, unknown>;
-    hooks.rpgState = () => ({ map: this.map.map.name, mapFolder: this.map.folder, destinations: WORLD_DESTINATIONS, attack: this.player.attackState, weaponProjectiles: {active:this.weaponShots.count,released:this.weaponShots.released,hits:this.weaponShots.hits}, powers: this.powers.state(this.save.hero,this.elapsed), gear: this.gear, gearCatalog: ARMOR_ITEMS, kundunCatalog: KUNDUN_BOXES, effectiveDamage:this.damage, started: this.running, modal: !!this.modal.innerHTML, ...this.save, wingsVisible: this.wings.visible, characterId: HEROES.find(h=>h.name===this.save.hero)?.id, texture: this.player.sprite.texture.key, frame: this.player.sprite.frame.name, scale: this.player.sprite.scaleX, displayHeight: this.player.sprite.displayHeight, facing: this.player.facing, safeZone:this.inSafeZone(this.player.worldPosition), safeCenter:this.home, safeRadius:townName(this.map.folder)?null:64, safePolygon:townName(this.map.folder)?SAFE_POLYGON:null, health: Math.ceil(this.health), maxHealth: this.maxHealth, mana: Math.floor(this.mana), x: this.player.sprite.x, y: this.player.sprite.y, wingCount: WING_CATALOG.length, wingTexture: this.wings.texture, master: {x:this.wingMaster.sprite.x,y:this.wingMaster.sprite.y,near:this.nearMaster,frame:this.wingMaster.sprite.frame.name}, enemies: this.mobs.map((m,i) => ({ id:i, x:m.sprite.x, y:m.sprite.y, health:m.health, name:m.label.text, frame:m.sprite.frame.name, boss:m.boss, classic:!!m.classic, stats:m.classic, state:m.dead?"death":m.hurtMs>0?"hurt":m.attackMs>0?"attack":"move", attackMs:m.attackMs, strikeAt:m.strikeAt, struck:m.struck, respawnRemaining:m.dead, dead:m.dead > 0 })) });
+    hooks.rpgState = () => ({ kundunOpening: this.kundunOpening.state(), map: this.map.map.name, mapFolder: this.map.folder, destinations: WORLD_DESTINATIONS, attack: this.player.attackState, weaponProjectiles: {active:this.weaponShots.count,released:this.weaponShots.released,hits:this.weaponShots.hits}, powers: this.powers.state(this.save.hero,this.elapsed), gear: this.gear, gearCatalog: ARMOR_ITEMS, kundunCatalog: KUNDUN_BOXES, effectiveDamage:this.damage, started: this.running, modal: !!this.modal.innerHTML, ...this.save, wingsVisible: this.wings.visible, characterId: HEROES.find(h=>h.name===this.save.hero)?.id, texture: this.player.sprite.texture.key, frame: this.player.sprite.frame.name, scale: this.player.sprite.scaleX, displayHeight: this.player.sprite.displayHeight, facing: this.player.facing, safeZone:this.inSafeZone(this.player.worldPosition), safeCenter:this.home, safeRadius:townName(this.map.folder)?null:64, safePolygon:townName(this.map.folder)?SAFE_POLYGON:null, health: Math.ceil(this.health), maxHealth: this.maxHealth, mana: Math.floor(this.mana), x: this.player.sprite.x, y: this.player.sprite.y, wingCount: WING_CATALOG.length, wingTexture: this.wings.texture, master: {x:this.wingMaster.sprite.x,y:this.wingMaster.sprite.y,near:this.nearMaster,frame:this.wingMaster.sprite.frame.name}, enemies: this.mobs.map((m,i) => ({ id:i, x:m.sprite.x, y:m.sprite.y, health:m.health, name:m.label.text, frame:m.sprite.frame.name, boss:m.boss, classic:!!m.classic, stats:m.classic, state:m.dead?"death":m.hurtMs>0?"hurt":m.attackMs>0?"attack":"move", attackMs:m.attackMs, strikeAt:m.strikeAt, struck:m.struck, respawnRemaining:m.dead, dead:m.dead > 0 })) });
     hooks.rpgReturnSafe=()=>{this.player.teleportTo(this.home.x,this.home.y);};
     hooks.rpgVisitMaster = () => { const p=nearestWalkable(this.map,{x:this.wingMaster.sprite.x,y:this.wingMaster.sprite.y+22},{width:6,height:4,footOffsetY:10},8);if(p)this.player.teleportTo(p.x,p.y); };
     hooks.rpgAction = (action: string) => this.action(action);
@@ -256,6 +258,7 @@ export class RealmRpg {
     this.renderMs+=delta; if(this.renderMs>250){this.renderMs=0;this.render();}
   }
   private action(action: string): void {
+    if(this.kundunOpening.busy)return;
     if(action.startsWith("class:")){const hero=HEROES.find(h=>h.name===action.slice(6));if(hero){this.selected=hero.name;this.startScreen();}return;}
     if(action==="start") {const input=this.modal.querySelector<HTMLInputElement>("input");this.save.hero=this.selected;if(!this.stored){this.save.name=(input?.value.trim()||"Viajante").slice(0,18);}this.player.setCharacter(HEROES.find(h=>h.name===this.save.hero)!.id);this.health=this.maxHealth;this.mana=80;this.running=true;this.modal.innerHTML="";this.log("Bem-vindo! Clique no chão para andar ou abra Mapas para viajar.");this.persist();this.render();return;}
     if(action==="heroes"){this.startScreen();return;}
@@ -269,7 +272,10 @@ export class RealmRpg {
     if(action==="master"){if(this.nearMaster)this.showWindow("W");else this.banner("Aproxime-se do Mestre das Asas no refúgio.");return;}
     if(action==="kundun"||action.startsWith("kundun:")){
       if(!this.running||this.health<=0)return;
-      if(action!=="kundun"){const result=kundunAction(this.save,action);if(result){this.log(result);for(const toast of this.root.querySelectorAll('.rpg-toast'))toast.remove();this.banner(result);this.persist();}}
+      if(action!=="kundun"){const result=kundunAction(this.save,action);if(result){this.log(result);for(const toast of this.root.querySelectorAll('.rpg-toast'))toast.remove();this.persist();
+        if(action.startsWith('kundun:open:')){this.showWindow('K');this.render();this.kundunOpening.play(this.root,Number(action.split(':')[2]),result,()=>{this.showWindow('K');this.render();});return;}
+        this.banner(result);
+      }}
       this.showWindow("K");this.render();return;
     }
     if(action==="sets"){if(this.running&&this.health>0)this.showWindow("S");return;}
@@ -337,5 +343,5 @@ export class RealmRpg {
   private banner(text:string):void {const el=document.createElement("div");el.className="rpg-toast";el.textContent=text;this.root.append(el);this.scene.time.delayedCall(2500,()=>el.remove());}
   private log(text:string):void {this.messages.unshift(text);this.messages=this.messages.slice(0,4);}
   private persist():void {try{localStorage.setItem(SAVE_KEY,JSON.stringify(this.save));}catch{/* Storage disabled by the browser. */}}
-  destroy():void {this.monsterCombat.destroy();this.weaponShots.destroy();this.powers.destroy();this.touchMovement.destroy();this.wings.destroy();this.persist();this.root.remove();this.heroLabel.destroy();this.wingMaster.destroy();this.masterLabel.destroy();for(const m of this.mobs){m.agent.destroy();m.label.destroy();m.bar.destroy();}const hooks=window as unknown as Record<string,unknown>;delete hooks.rpgState;delete hooks.rpgAction;delete hooks.rpgApproach;delete hooks.rpgVisitMaster;}
+  destroy():void {this.kundunOpening.destroy();this.monsterCombat.destroy();this.weaponShots.destroy();this.powers.destroy();this.touchMovement.destroy();this.wings.destroy();this.persist();this.root.remove();this.heroLabel.destroy();this.wingMaster.destroy();this.masterLabel.destroy();for(const m of this.mobs){m.agent.destroy();m.label.destroy();m.bar.destroy();}const hooks=window as unknown as Record<string,unknown>;delete hooks.rpgState;delete hooks.rpgAction;delete hooks.rpgApproach;delete hooks.rpgVisitMaster;}
 }
