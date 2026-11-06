@@ -1484,68 +1484,6 @@
       ],
       "sync_version": 16
     },
-    "711bba78-5cdc-4813-b6bc-75fae771b629": {
-      "updated_at": "2026-11-06T21:20:20.287141+00:00",
-      "animation_ids": [
-        "16fd2d25-d1f2-4183-8f32-2545b6fcd535",
-        "32f192c2-9b46-4051-b2ca-07a7a247db1a",
-        "4eb9541b-c874-4eb1-82bb-bc8d53adbf25",
-        "61fd8aa2-12f9-4d4e-ae28-7c4a6761c3b0",
-        "6639a6ce-9675-4a32-b355-96c79c131aea",
-        "73cf3a59-a670-4843-8ed6-caf8dc903547",
-        "7c79edd4-fa69-44e4-898a-3d1b9b8b3e91",
-        "914521fd-4b84-4cf8-916a-43b0afe3933c",
-        "941cb73d-7bce-4c0c-963a-a2db370587c8",
-        "a164e1ff-3610-4097-9f3f-61c88758cafb",
-        "a2259bf6-de14-4a01-9fe7-736dc116771a",
-        "bb16a745-7245-4fdd-b460-06977212357a",
-        "c4737c95-bd47-4218-b76f-b5c88d627866",
-        "c5c822c8-966f-436f-980d-db4cb1ac6948",
-        "cac0582b-7e94-4742-876d-04782e5cf3f5",
-        "cb5a2ec6-3144-4ee8-9958-ecd62284b298",
-        "ced61b8f-4a25-4fda-a3d9-32850d6d81a2",
-        "d2633289-c4bf-4ee2-8853-bbcdbfe96146",
-        "d3b8832f-77de-4daa-86ed-242d25fe6725",
-        "e3ac8283-dd22-4e67-8325-dea5fb42753e",
-        "eac0b968-9485-4e9b-9b5f-99a389292238",
-        "ee690737-808d-4b5f-ae13-148b1160bc7f",
-        "f2d5904c-98fe-4990-864c-1e945c81ab48",
-        "fb810b00-4b4b-4582-a469-5513607533d5"
-      ],
-      "animation_fingerprint": "82e8554179be971f73b74c46ba2965e97925eaca1262a0f8fc2e0657dee15f10",
-      "name": "Gladiador \u2014 Iniciante Desarmado",
-      "member_ids": [
-        "711bba78-5cdc-4813-b6bc-75fae771b629"
-      ],
-      "sync_version": 16
-    },
-    "a3465549-9dbe-4e4b-929e-9041eb8d2875": {
-      "updated_at": "2026-11-06T21:21:08.000788+00:00",
-      "animation_ids": [
-        "2311e19e-ad6a-4d9b-8c45-003f7562ca68",
-        "24367323-6d9f-44de-bb09-847f7c1c8d78",
-        "411ad9ee-112f-4c52-a6d7-dca909311621",
-        "49fab6e3-e74a-4571-8a10-2db99e80af91",
-        "4a612a43-45f8-4d41-b4bb-c7d811c5ea5a",
-        "5b622151-d3fe-44aa-bc04-6c1cac7e601c",
-        "5f93995c-0db8-4edb-9e40-cc3d9e3e2830",
-        "6479f21a-2fcc-4d58-8ee3-c61b60ce7eba",
-        "6748e9a9-d56a-4a2a-b535-dcaac7a03384",
-        "713cef38-28fa-4307-9e3a-0322e157fac1",
-        "75f21f28-80fd-4716-a8ef-d213f54b590b",
-        "9a19b06a-246d-4363-aff5-148c0d47d6b9",
-        "9d326a4c-1d48-4ff8-ae61-e25222d4e3a4",
-        "a50e4b91-c370-484c-8291-1b23fc5b8fe7",
-        "d866daa0-1754-4943-8d81-fa535866e30f",
-        "e7bdfa50-5114-4cf4-aa08-8b3b1d0be078"
-      ],
-      "animation_fingerprint": "81f2cb2d89a574a94b7c932e72ba2cac7e216522595206297c4cb962a47f321f",
-      "name": "Lorde Sombrio \u2014 Iniciante Desarmado",
-      "member_ids": [
-        "a3465549-9dbe-4e4b-929e-9041eb8d2875"
-      ],
-      "sync_version": 16
-    },
     "00efc997-1c47-4ed8-af0d-ade9db50967a": {
       "updated_at": "2026-11-06T21:20:54.161353+00:00",
       "animation_ids": [
@@ -1578,6 +1516,68 @@
       "name": "Arqueiro Elfa \u2014 Iniciante Desarmada",
       "member_ids": [
         "00efc997-1c47-4ed8-af0d-ade9db50967a"
+      ],
+      "sync_version": 16
+    },
+    "a3465549-9dbe-4e4b-929e-9041eb8d2875": {
+      "updated_at": "2026-11-06T21:21:08.000788+00:00",
+      "animation_ids": [
+        "2311e19e-ad6a-4d9b-8c45-003f7562ca68",
+        "24367323-6d9f-44de-bb09-847f7c1c8d78",
+        "411ad9ee-112f-4c52-a6d7-dca909311621",
+        "49fab6e3-e74a-4571-8a10-2db99e80af91",
+        "4a612a43-45f8-4d41-b4bb-c7d811c5ea5a",
+        "5b622151-d3fe-44aa-bc04-6c1cac7e601c",
+        "5f93995c-0db8-4edb-9e40-cc3d9e3e2830",
+        "6479f21a-2fcc-4d58-8ee3-c61b60ce7eba",
+        "6748e9a9-d56a-4a2a-b535-dcaac7a03384",
+        "713cef38-28fa-4307-9e3a-0322e157fac1",
+        "75f21f28-80fd-4716-a8ef-d213f54b590b",
+        "9a19b06a-246d-4363-aff5-148c0d47d6b9",
+        "9d326a4c-1d48-4ff8-ae61-e25222d4e3a4",
+        "a50e4b91-c370-484c-8291-1b23fc5b8fe7",
+        "d866daa0-1754-4943-8d81-fa535866e30f",
+        "e7bdfa50-5114-4cf4-aa08-8b3b1d0be078"
+      ],
+      "animation_fingerprint": "81f2cb2d89a574a94b7c932e72ba2cac7e216522595206297c4cb962a47f321f",
+      "name": "Lorde Sombrio \u2014 Iniciante Desarmado",
+      "member_ids": [
+        "a3465549-9dbe-4e4b-929e-9041eb8d2875"
+      ],
+      "sync_version": 16
+    },
+    "711bba78-5cdc-4813-b6bc-75fae771b629": {
+      "updated_at": "2026-11-06T21:20:20.287141+00:00",
+      "animation_ids": [
+        "16fd2d25-d1f2-4183-8f32-2545b6fcd535",
+        "32f192c2-9b46-4051-b2ca-07a7a247db1a",
+        "4eb9541b-c874-4eb1-82bb-bc8d53adbf25",
+        "61fd8aa2-12f9-4d4e-ae28-7c4a6761c3b0",
+        "6639a6ce-9675-4a32-b355-96c79c131aea",
+        "73cf3a59-a670-4843-8ed6-caf8dc903547",
+        "7c79edd4-fa69-44e4-898a-3d1b9b8b3e91",
+        "914521fd-4b84-4cf8-916a-43b0afe3933c",
+        "941cb73d-7bce-4c0c-963a-a2db370587c8",
+        "a164e1ff-3610-4097-9f3f-61c88758cafb",
+        "a2259bf6-de14-4a01-9fe7-736dc116771a",
+        "bb16a745-7245-4fdd-b460-06977212357a",
+        "c4737c95-bd47-4218-b76f-b5c88d627866",
+        "c5c822c8-966f-436f-980d-db4cb1ac6948",
+        "cac0582b-7e94-4742-876d-04782e5cf3f5",
+        "cb5a2ec6-3144-4ee8-9958-ecd62284b298",
+        "ced61b8f-4a25-4fda-a3d9-32850d6d81a2",
+        "d2633289-c4bf-4ee2-8853-bbcdbfe96146",
+        "d3b8832f-77de-4daa-86ed-242d25fe6725",
+        "e3ac8283-dd22-4e67-8325-dea5fb42753e",
+        "eac0b968-9485-4e9b-9b5f-99a389292238",
+        "ee690737-808d-4b5f-ae13-148b1160bc7f",
+        "f2d5904c-98fe-4990-864c-1e945c81ab48",
+        "fb810b00-4b4b-4582-a469-5513607533d5"
+      ],
+      "animation_fingerprint": "82e8554179be971f73b74c46ba2965e97925eaca1262a0f8fc2e0657dee15f10",
+      "name": "Gladiador \u2014 Iniciante Desarmado",
+      "member_ids": [
+        "711bba78-5cdc-4813-b6bc-75fae771b629"
       ],
       "sync_version": 16
     }
