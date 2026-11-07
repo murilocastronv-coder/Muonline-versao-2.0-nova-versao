@@ -225,3 +225,7 @@ export const ELEMENTAL_ART: {objectId:string;icon:string;frames:string[]}[] = [
     ]
   }
 ];
+
+// Keep the bronze bow in its ornate form and skip the wind loop's faded end pose.
+ELEMENTAL_ART[4].frames = [3,4,5,6,7,6,5,4].map(i => ELEMENTAL_ART[4].frames[i]);
+ELEMENTAL_ART[8].frames = [0,1,2,3,4,5,6,5].map(i => ELEMENTAL_ART[8].frames[i]);
