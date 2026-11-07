@@ -2945,17 +2945,6 @@
       ],
       "sync_version": 3
     },
-    "08f80838-db8a-4e78-b092-779df6f900fc": {
-      "updated_at": "2026-11-07T06:58:56.667065+00:00",
-      "animation_ids": [
-        "82b01bf6-0204-407a-acca-c18e59e34295"
-      ],
-      "name": "base",
-      "member_ids": [
-        "08f80838-db8a-4e78-b092-779df6f900fc"
-      ],
-      "sync_version": 3
-    },
     "0cea0475-ea23-4a07-938e-71d026ba63ee": {
       "updated_at": "2026-11-07T06:58:56.667065+00:00",
       "animation_ids": [
@@ -2997,6 +2986,17 @@
       "name": "base",
       "member_ids": [
         "8a0a655f-b20c-4d1d-9dc9-ecd96612fecf"
+      ],
+      "sync_version": 3
+    },
+    "a486541c-f037-4052-9077-3f7d59cab641": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "f139f5b8-7212-4274-9d86-0a9ac25c6099"
+      ],
+      "name": "base",
+      "member_ids": [
+        "a486541c-f037-4052-9077-3f7d59cab641"
       ],
       "sync_version": 3
     },
@@ -3110,14 +3110,14 @@
       ],
       "sync_version": 3
     },
-    "a486541c-f037-4052-9077-3f7d59cab641": {
+    "08f80838-db8a-4e78-b092-779df6f900fc": {
       "updated_at": "2026-11-07T06:58:56.667065+00:00",
       "animation_ids": [
-        "f139f5b8-7212-4274-9d86-0a9ac25c6099"
+        "82b01bf6-0204-407a-acca-c18e59e34295"
       ],
       "name": "base",
       "member_ids": [
-        "a486541c-f037-4052-9077-3f7d59cab641"
+        "08f80838-db8a-4e78-b092-779df6f900fc"
       ],
       "sync_version": 3
     }
