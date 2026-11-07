@@ -3022,6 +3022,17 @@
       ],
       "sync_version": 3
     },
+    "c68bb6af-4916-4bed-9ad5-ddc0907eaf26": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "9c06e78f-6204-4a4e-b358-b311275bdfbb"
+      ],
+      "name": "base",
+      "member_ids": [
+        "c68bb6af-4916-4bed-9ad5-ddc0907eaf26"
+      ],
+      "sync_version": 3
+    },
     "ce4149ad-36ae-43d8-b5f7-ab64b8e60b27": {
       "updated_at": "2026-11-07T06:58:56.667065+00:00",
       "animation_ids": [
@@ -3107,17 +3118,6 @@
       "name": "base",
       "member_ids": [
         "f03813ff-5751-4985-84d8-1569abc753bb"
-      ],
-      "sync_version": 3
-    },
-    "c68bb6af-4916-4bed-9ad5-ddc0907eaf26": {
-      "updated_at": "2026-11-07T06:58:56.667065+00:00",
-      "animation_ids": [
-        "9c06e78f-6204-4a4e-b358-b311275bdfbb"
-      ],
-      "name": "base",
-      "member_ids": [
-        "c68bb6af-4916-4bed-9ad5-ddc0907eaf26"
       ],
       "sync_version": 3
     }
