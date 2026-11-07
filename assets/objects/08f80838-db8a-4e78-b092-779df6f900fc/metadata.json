@@ -8,7 +8,14 @@
       "directions": [
         "unknown"
       ],
-      "animations": {}
+      "animations": {
+        "seamless-idle-loop-serrated-sword-stays-fixed-in": {
+          "frame_count": 8,
+          "directions": [
+            "unknown"
+          ]
+        }
+      }
     }
   ],
   "export_version": "3.0"

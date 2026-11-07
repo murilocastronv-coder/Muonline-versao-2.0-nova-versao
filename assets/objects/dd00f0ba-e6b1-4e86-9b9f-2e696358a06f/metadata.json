@@ -8,7 +8,14 @@
       "directions": [
         "unknown"
       ],
-      "animations": {}
+      "animations": {
+        "seamless-idle-loop-wizard-staff-stationary-cyan": {
+          "frame_count": 8,
+          "directions": [
+            "unknown"
+          ]
+        }
+      }
     }
   ],
   "export_version": "3.0"
