@@ -2944,6 +2944,164 @@
         "f7d7cd4f-7583-4fb0-9213-716f5c06f6bf"
       ],
       "sync_version": 3
+    },
+    "e97d0331-04e9-49d6-ac16-28fde1e05a8f": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "e97d0331-04e9-49d6-ac16-28fde1e05a8f"
+      ],
+      "sync_version": 3
+    },
+    "8a0a655f-b20c-4d1d-9dc9-ecd96612fecf": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "8a0a655f-b20c-4d1d-9dc9-ecd96612fecf"
+      ],
+      "sync_version": 3
+    },
+    "de85e0a6-f952-4053-a730-426bd8207a87": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "de85e0a6-f952-4053-a730-426bd8207a87"
+      ],
+      "sync_version": 3
+    },
+    "1051d7f0-bbac-4085-b9fe-d702b6cc1a93": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "1051d7f0-bbac-4085-b9fe-d702b6cc1a93"
+      ],
+      "sync_version": 3
+    },
+    "c68bb6af-4916-4bed-9ad5-ddc0907eaf26": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "c68bb6af-4916-4bed-9ad5-ddc0907eaf26"
+      ],
+      "sync_version": 3
+    },
+    "a486541c-f037-4052-9077-3f7d59cab641": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "a486541c-f037-4052-9077-3f7d59cab641"
+      ],
+      "sync_version": 3
+    },
+    "dd00f0ba-e6b1-4e86-9b9f-2e696358a06f": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "dd00f0ba-e6b1-4e86-9b9f-2e696358a06f"
+      ],
+      "sync_version": 3
+    },
+    "dcd3ea62-651b-4a51-9468-60a3044a47ca": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "0d7ffc4b-3986-44da-9907-4cefec04e217"
+      ],
+      "name": "base",
+      "member_ids": [
+        "dcd3ea62-651b-4a51-9468-60a3044a47ca"
+      ],
+      "sync_version": 3
+    },
+    "08f80838-db8a-4e78-b092-779df6f900fc": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "08f80838-db8a-4e78-b092-779df6f900fc"
+      ],
+      "sync_version": 3
+    },
+    "ce4149ad-36ae-43d8-b5f7-ab64b8e60b27": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [],
+      "name": "base",
+      "member_ids": [
+        "ce4149ad-36ae-43d8-b5f7-ab64b8e60b27"
+      ],
+      "sync_version": 3
+    },
+    "0cea0475-ea23-4a07-938e-71d026ba63ee": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "6acbee26-6baa-4734-b5da-1f58f792abd2"
+      ],
+      "name": "base",
+      "member_ids": [
+        "0cea0475-ea23-4a07-938e-71d026ba63ee"
+      ],
+      "sync_version": 3
+    },
+    "ab68f8e7-c5bb-494d-bf1a-4dac01dfec37": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "1e038c24-b7fa-47de-84d8-5a99bc877821"
+      ],
+      "name": "base",
+      "member_ids": [
+        "ab68f8e7-c5bb-494d-bf1a-4dac01dfec37"
+      ],
+      "sync_version": 3
+    },
+    "f03813ff-5751-4985-84d8-1569abc753bb": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "11352fe4-3188-4527-b111-b3f6a9db0169"
+      ],
+      "name": "base",
+      "member_ids": [
+        "f03813ff-5751-4985-84d8-1569abc753bb"
+      ],
+      "sync_version": 3
+    },
+    "6435dbdf-254e-442b-9e6d-317ae81b6b83": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "39dacb02-5ee9-4ed7-9a28-98140be92842"
+      ],
+      "name": "base",
+      "member_ids": [
+        "6435dbdf-254e-442b-9e6d-317ae81b6b83"
+      ],
+      "sync_version": 3
+    },
+    "de60d9f6-1d6f-4d9d-a51c-a6b21d139cf6": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "d6fa9279-1114-4e75-a945-4f3e5e059172"
+      ],
+      "name": "base",
+      "member_ids": [
+        "de60d9f6-1d6f-4d9d-a51c-a6b21d139cf6"
+      ],
+      "sync_version": 3
+    },
+    "d74e8ef8-4239-46df-af5e-e755372ea7de": {
+      "updated_at": "2026-11-07T06:58:56.667065+00:00",
+      "animation_ids": [
+        "12640072-e87c-43af-8e8a-34d0df8a7d85"
+      ],
+      "name": "base",
+      "member_ids": [
+        "d74e8ef8-4239-46df-af5e-e755372ea7de"
+      ],
+      "sync_version": 3
     }
   },
   "tilesets": {
