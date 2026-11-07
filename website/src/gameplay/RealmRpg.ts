@@ -96,9 +96,6 @@ export class RealmRpg {
   private travelHandler?: (id: string) => Promise<void>;
   private showMaps(): void {
     this.modal.dataset.view="maps";
-    if(view==="I")body=`<button data-action="arsenal">⚔ Abrir coleção de armas animadas</button>`+body;
-    const elemental=elementalState(s).equipped;
-    if(elemental&&(view==="I"||view==="C"))body=`<section style="padding:12px;border:1px solid #82d3e6;border-radius:8px"><h3>Arma equipada</h3>${weaponImage(elemental,96)}<strong>${elemental.name}</strong><p>${elemental.effect} · Dano +${elemental.damage}</p><button data-action="arsenal">Ver arsenal</button></section>`+body;
     this.modal.innerHTML=`<div class="rpg-overlay"><section class="rpg-window"><button class="rpg-close" data-action="close">Fechar ×</button><div class="rpg-caption">VIAGEM LIVRE · 20 DESTINOS</div><h2>Mapas</h2><p>Escolha seu destino. Blood Castle e Devil Square: visita livre, sem regras de evento.</p><div class="rpg-map-grid">${WORLD_DESTINATIONS.map(d=>`<button data-action="travel:${d.id}" ${d.id===this.map.folder?"disabled":""}><strong>${d.name}</strong><small>${d.theme}${d.id===this.map.folder?" · Você está aqui":""}</small></button>`).join("")}</div></section></div>`;
   }
   get active(): boolean { return this.running && !this.modal.innerHTML; }
