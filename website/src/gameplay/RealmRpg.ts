@@ -1,3 +1,4 @@
+import { GLACIAL_ITEMS, glacialState, glacialHtml, glacialAction, type GlacialSave } from './GlacialSets';
 import { KUNDUN_BOXES, grantBox, kundunAction, kundunHtml } from './KundunBoxes';
 import { KundunOpening } from './KundunOpening';
 import { ARMOR_ITEMS, gearState, gearHtml, type GearSave } from './ArmorSets';
@@ -25,7 +26,7 @@ import { TouchMovement } from "./TouchMovement";
 import { WeaponProjectiles } from "./WeaponProjectiles";
 import { HEROES, heroPreview, type HeroClass } from "./HeroRoster";
 import { UNARMED_HEROES } from "./UnarmedHeroes";
-interface Save extends GearSave { kundunBoxes?: Record<string,number>; kundunWelcome?: boolean; kundunLastReward?: string; wingId?: string; wings: boolean; name: string; hero: HeroClass; level: number; xp: number; gold: number; kills: number; quest: number; weapon: number; armor: number; potions: number; points: number; strength: number; vitality: number; items: number; }
+interface Save extends GearSave, GlacialSave { kundunBoxes?: Record<string,number>; kundunWelcome?: boolean; kundunLastReward?: string; wingId?: string; wings: boolean; name: string; hero: HeroClass; level: number; xp: number; gold: number; kills: number; quest: number; weapon: number; armor: number; potions: number; points: number; strength: number; vitality: number; items: number; }
 interface Mob { classic?: ClassicMonster; attackMs: number; strikeAt: number; struck: boolean; hurtMs: number; facing: Direction; agent: CharacterAgent; health: number; max: number; boss: boolean; home: Point; path: Point[]; repath: number; cooldown: number; dead: number; label: Phaser.GameObjects.Text; bar: Phaser.GameObjects.Graphics; hitRadius: number; sprite: Phaser.GameObjects.Sprite; hit: (x: number,y: number,strength: number) => boolean; }
 const COLLIDER = { width: 8, height: 4, footOffsetY: 15 };
 const SAVE_KEY = "aether-reborn-save-v1";
@@ -75,7 +76,7 @@ export class RealmRpg {
     this.heroLabel = scene.add.text(player.sprite.x, player.sprite.y - 40, "", { fontFamily: "Arial", fontSize: "9px", color: "#ead398", stroke: "#11171c", strokeThickness: 3 }).setOrigin(.5).setDepth(200000);
     this.createMobs(); this.createWingMaster(); this.startScreen(); this.render();
     const hooks = window as unknown as Record<string, unknown>;
-    hooks.rpgState = () => ({ kundunOpening: this.kundunOpening.state(), map: this.map.map.name, mapFolder: this.map.folder, destinations: WORLD_DESTINATIONS, attack: this.player.attackState, weaponProjectiles: {active:this.weaponShots.count,released:this.weaponShots.released,hits:this.weaponShots.hits}, powers: this.powers.state(this.save.hero,this.elapsed), gear: this.gear, gearCatalog: ARMOR_ITEMS, kundunCatalog: KUNDUN_BOXES, effectiveDamage:this.damage, started: this.running, modal: !!this.modal.innerHTML, ...this.save, wingsVisible: this.wings.visible, unarmed: this.unarmed, characterId: this.heroCharacterId, texture: this.player.sprite.texture.key, frame: this.player.sprite.frame.name, scale: this.player.sprite.scaleX, displayHeight: this.player.sprite.displayHeight, facing: this.player.facing, safeZone:this.inSafeZone(this.player.worldPosition), safeCenter:this.home, safeRadius:townName(this.map.folder)?null:64, safePolygon:townName(this.map.folder)?SAFE_POLYGON:null, health: Math.ceil(this.health), maxHealth: this.maxHealth, mana: Math.floor(this.mana), x: this.player.sprite.x, y: this.player.sprite.y, wingCount: WING_CATALOG.length, wingTexture: this.wings.texture, master: {x:this.wingMaster.sprite.x,y:this.wingMaster.sprite.y,near:this.nearMaster,frame:this.wingMaster.sprite.frame.name}, enemies: this.mobs.map((m,i) => ({ id:i, x:m.sprite.x, y:m.sprite.y, health:m.health, name:m.label.text, frame:m.sprite.frame.name, boss:m.boss, classic:!!m.classic, stats:m.classic, state:m.dead?"death":m.hurtMs>0?"hurt":m.attackMs>0?"attack":"move", attackMs:m.attackMs, strikeAt:m.strikeAt, struck:m.struck, respawnRemaining:m.dead, dead:m.dead > 0 })) });
+    hooks.rpgState = () => ({ glacial: this.glacial, glacialCatalog: GLACIAL_ITEMS, kundunOpening: this.kundunOpening.state(), map: this.map.map.name, mapFolder: this.map.folder, destinations: WORLD_DESTINATIONS, attack: this.player.attackState, weaponProjectiles: {active:this.weaponShots.count,released:this.weaponShots.released,hits:this.weaponShots.hits}, powers: this.powers.state(this.save.hero,this.elapsed), gear: this.gear, gearCatalog: ARMOR_ITEMS, kundunCatalog: KUNDUN_BOXES, effectiveDamage:this.damage, started: this.running, modal: !!this.modal.innerHTML, ...this.save, wingsVisible: this.wings.visible, unarmed: this.unarmed, characterId: this.heroCharacterId, texture: this.player.sprite.texture.key, frame: this.player.sprite.frame.name, scale: this.player.sprite.scaleX, displayHeight: this.player.sprite.displayHeight, facing: this.player.facing, safeZone:this.inSafeZone(this.player.worldPosition), safeCenter:this.home, safeRadius:townName(this.map.folder)?null:64, safePolygon:townName(this.map.folder)?SAFE_POLYGON:null, health: Math.ceil(this.health), maxHealth: this.maxHealth, mana: Math.floor(this.mana), x: this.player.sprite.x, y: this.player.sprite.y, wingCount: WING_CATALOG.length, wingTexture: this.wings.texture, master: {x:this.wingMaster.sprite.x,y:this.wingMaster.sprite.y,near:this.nearMaster,frame:this.wingMaster.sprite.frame.name}, enemies: this.mobs.map((m,i) => ({ id:i, x:m.sprite.x, y:m.sprite.y, health:m.health, name:m.label.text, frame:m.sprite.frame.name, boss:m.boss, classic:!!m.classic, stats:m.classic, state:m.dead?"death":m.hurtMs>0?"hurt":m.attackMs>0?"attack":"move", attackMs:m.attackMs, strikeAt:m.strikeAt, struck:m.struck, respawnRemaining:m.dead, dead:m.dead > 0 })) });
     hooks.rpgReturnSafe=()=>{this.player.teleportTo(this.home.x,this.home.y);};
     hooks.rpgVisitMaster = () => { const p=nearestWalkable(this.map,{x:this.wingMaster.sprite.x,y:this.wingMaster.sprite.y+22},{width:6,height:4,footOffsetY:10},8);if(p)this.player.teleportTo(p.x,p.y); };
     hooks.rpgAction = (action: string) => this.action(action);
@@ -98,16 +99,17 @@ export class RealmRpg {
   }
   get active(): boolean { return this.running && !this.modal.innerHTML; }
   get targets(): Mob[] { return this.active && !this.inSafeZone(this.player.worldPosition) ? this.mobs.filter(m => !m.dead&&!this.inSafeZone(m.sprite)) : []; }
-  private get unarmed(): boolean { return this.save.weapon === 0; }
+  private get unarmed(): boolean { return this.save.weapon === 0 && !this.glacial.weapon; }
   private get heroCharacterId(): string { return this.unarmed ? UNARMED_HEROES[this.save.hero] : HEROES.find(h=>h.name===this.save.hero)!.id; }
   private syncHero(): void { this.player.setCharacter(this.heroCharacterId, this.unarmed); }
+  private get glacial() { return glacialState(this.save); }
   private get gear() { return gearState(this.save,this.save.level); }
-  get maxHealth(): number { return this.gear.hp + 120 + (this.save.level-1)*18 + this.save.vitality*12 + (this.save.hero === "Cavaleiro" ? 30 : 0); }
-  private get damage(): number { return this.gear.damage + 16 + this.save.level*3 + this.save.weapon*9 + this.save.strength*3 + (this.save.hero === "Cavaleiro" ? 6 : 0); }
+  get maxHealth(): number { return this.glacial.hp + this.gear.hp + 120 + (this.save.level-1)*18 + this.save.vitality*12 + (this.save.hero === "Cavaleiro" ? 30 : 0); }
+  private get damage(): number { return this.glacial.damage + this.gear.damage + 16 + this.save.level*3 + this.save.weapon*9 + this.save.strength*3 + (this.save.hero === "Cavaleiro" ? 6 : 0); }
   private inSafeZone(point: Point): boolean { return townName(this.map.folder) ? insideTown(point) : Math.hypot(point.x-this.home.x,point.y-this.home.y)<=64; }
   private receiveMonsterDamage(damage:number):void {
     if(!this.active||this.inSafeZone(this.player.worldPosition))return;
-    const value=Math.max(2,damage-this.save.armor*3-this.gear.defense);this.health-=value;
+    const value=Math.max(2,damage-this.save.armor*3-this.gear.defense-this.glacial.defense);this.health-=value;
     this.float(this.player.sprite.x,this.player.sprite.y-18,`−${value}`,"#fa8577");
     this.player.sprite.setTint(0xf89c99);this.scene.time.delayedCall(120,()=>this.player.sprite.clearTint());
     if(this.health<=0)this.defeat();
@@ -282,6 +284,11 @@ export class RealmRpg {
       }}
       this.showWindow("K");this.render();return;
     }
+    if(action==="glacial"||action.startsWith("glacial:")){
+      if(this.health<=0)return;
+      if(action!=="glacial")glacialAction(this.save,action);
+      this.syncHero();this.health=Math.min(this.health,this.maxHealth);this.persist();this.showWindow("G");this.render();return;
+    }
     if(action==="sets"){if(this.running&&this.health>0)this.showWindow("S");return;}
     if(action.startsWith("gear:")){
       if(!this.running||this.health<=0)return;
@@ -289,7 +296,7 @@ export class RealmRpg {
       if(!item)return;
       const state=this.gear;
       if(_verb==="buy"&&!state.owned.includes(id)&&this.save.gold>=item.price){this.save.gold-=item.price;this.save.gearOwned=[...state.owned,id];}
-      if(_verb==="equip"&&state.owned.includes(id)&&this.save.level>=item.level)this.save.gearEquipped={...state.equipped,[item.slot]:id};
+      if(_verb==="equip"&&state.owned.includes(id)&&this.save.level>=item.level){this.save.gearEquipped={...state.equipped,[item.slot]:id};if(this.save.glacialEquipped)delete this.save.glacialEquipped[item.slot];}
       if(_verb==="remove"&&state.equipped[item.slot]===id){delete state.equipped[item.slot];this.save.gearEquipped=state.equipped;}
       this.health=Math.min(this.health,this.maxHealth);this.persist();this.showWindow("S");this.render();return;
     }
@@ -335,13 +342,15 @@ export class RealmRpg {
   }
   private showWindow(view:string):void {this.modal.dataset.view=view;const s=this.save;const item=(name:string,desc:string,action:string,label:string)=>`<div class="rpg-item"><strong>${name}</strong><span>${desc}</span><br><button data-action="${action}">${label}</button></div>`;let body="";
     if(view==="I")body=`<p>${s.gold} ouro · Equipamentos ativos abaixo</p><div class="rpg-items">${item("Conjuntos equipáveis · 20 peças","Raro · Lendário · Excelente · Mítico","sets","Abrir arsenal")}${item(this.unarmed?"Mãos vazias · sem arma":`Arma +${s.weapon}`,`${this.damage} dano efetivo${this.unarmed?" · J socos alternados / L soco forte":""}`,"B",this.unarmed?"Obter arma":"Aprimorar")}${item(`Armadura +${s.armor}`,`Reduz ${s.armor*3} dano`,"B","Aprimorar")}${item(`Poções ×${s.potions}`,"Recuperam 85 vida", "close","Voltar · Q para usar")}${item(`Fragmentos ×${s.items}`,"12 ouro por fragmento","sell","Vender todos")}${item("Asas equipáveis",s.wings?"Equipadas · cosméticas, sem voo":"Cosméticas · todas as cinco classes","wings",s.wings?"Retirar asas":"Equipar asas")}${item("Coleção de asas · 30 modelos","6 famílias × níveis 1 a 5","catalog","Abrir catálogo")}</div>`;
+    if(view==="G")body=glacialHtml(s);
+    if(view==="I")body+=`<div class="rpg-items">${item("❄ Dragão Glacial · Especial","5 classes · 5 armas · pendente e 2 anéis","glacial","Abrir coleção glacial")}</div>`;
     if(view==="K")body=kundunHtml(s);
     if(view==="I")body+=`<div class="rpg-items">${item("Boxes de Kundun · +1 a +7","Sete visuais · abrir, comprar e resgatar presente","kundun","Abrir caixas de Kundun")}</div>`;
     if(view==="S")body=gearHtml(s,s.level,s.gold);
     if(view==="W")body=wingCatalogHtml(s.wingId,s.wings);
     if(view==="C")body=`<p>${s.hero} · Nível ${s.level} · ${s.xp}/${s.level*100} EXP<br>Vida máxima ${this.maxHealth} · Dano ${this.damage}<br><b>${s.points} pontos disponíveis</b></p><div class="rpg-items">${item(`Força ${s.strength}`,"+3 dano por ponto","strength","Adicionar +1")}${item(`Vitalidade ${s.vitality}`,"+12 vida por ponto","vitality","Adicionar +1")}${item("Cinco heróis","Troque a aparência sem perder seu progresso","heroes","Escolher herói")}</div>`;
     if(view==="B")body=`<p>Ferreiro do refúgio · ${s.gold} ouro<br>A loja pode ser acessada de qualquer lugar nesta versão.</p><div class="rpg-items">${item(`Arma +${s.weapon} → +${s.weapon+1}`,"+9 dano. Sucesso garantido.","weapon",`${80+s.weapon*60} ouro`)}${item(`Armadura +${s.armor} → +${s.armor+1}`,"−3 dano recebido.","armor",`${80+s.armor*60} ouro`)}${item("3 poções","Recupere a vida durante a caçada.","buy","20 ouro")}</div>`;
-    this.modal.innerHTML=`<div class="rpg-overlay"><section class="rpg-window"><button class="rpg-close" data-action="close">Fechar ×</button><div class="rpg-caption">AETHER REBORN</div><h2>${view==="I"?"Inventário":view==="C"?"Personagem":view==="W"?"Mestre das Asas":view==="S"?"Conjuntos equipáveis":view==="K"?"Boxes de Kundun":"Ferreiro"}</h2>${body}<p style="font-size:10px">O combate fica pausado enquanto este painel estiver aberto.</p></section></div>`;}
+    this.modal.innerHTML=`<div class="rpg-overlay"><section class="rpg-window"><button class="rpg-close" data-action="close">Fechar ×</button><div class="rpg-caption">AETHER REBORN</div><h2>${view==="I"?"Inventário":view==="C"?"Personagem":view==="W"?"Mestre das Asas":view==="S"?"Conjuntos equipáveis":view==="K"?"Boxes de Kundun":view==="G"?"Dragão Glacial":"Ferreiro"}</h2>${body}<p style="font-size:10px">O combate fica pausado enquanto este painel estiver aberto.</p></section></div>`;}
   private render():void {const s=this.save;this.panel.innerHTML=`<header class="rpg-brand"><h1>AETHER</h1><small>R E B O R N</small></header><div class="rpg-region"><strong>${this.map.map.name.toUpperCase()}</strong><div>${this.inSafeZone(this.player.worldPosition)?"🛡 Zona segura":"⚔ Área de combate"}</div><div>Canal 01 · mundo compartilhado</div></div><nav class="rpg-menu"><button data-action="I">Mochila [I]</button><button data-action="C">Herói [C]</button><button data-action="B">Loja [B]</button></nav><div class="rpg-help">WASD · mover / Shift · correr<br>${this.unarmed?"J · socos / L · soco forte":"J · golpe / L · magia"}<br>1–4 · poderes exclusivos / E · mestre próximo / poder 2<br>R · retornar ao refúgio</div><div class="rpg-feed">${this.messages.map(m=>`<div>${m}</div>`).join("")}</div><footer class="rpg-bottom"><div class="rpg-orb"><b>${Math.max(0,Math.ceil(this.health))}</b><span>VIDA / ${this.maxHealth}</span></div><div class="rpg-bars"><div class="rpg-character-line"><span>Nv.${s.level} · ${s.hero}</span><span>${s.gold} OURO</span></div><div class="rpg-xp"><i style="width:${s.xp/(s.level*100)*100}%"></i></div><div class="rpg-powers">${this.powers.state(s.hero,this.elapsed).skills.map((p,i)=>`<button data-action="power:${i}" style="--power:#${HERO_POWERS[s.hero][i].color.toString(16).padStart(6,"0")}" title="${p.name} · ${p.cost} mana" ${p.remaining||this.mana<p.cost?"disabled":""}><em>${i+1}</em><span>${p.name}</span><small>${p.remaining?`${p.remaining}s`:`${p.cost} MP`}</small></button>`).join("")}</div><div class="rpg-actions"><button data-action="maps">🌍 Mapas</button><button data-action="attack"><em>J</em> Golpe</button><button data-action="Q"><em>Q</em> Poção ×${s.potions}</button></div></div><div class="rpg-orb mana"><b>${Math.floor(this.mana)}</b><span>MANA / 80</span></div></footer>`;if(s.hero==="Arqueiro"&&this.active)this.mana=Math.min(80,this.mana+.5);}
   private float(x:number,y:number,text:string,color:string):void {const label=this.scene.add.text(x,y,text,{fontFamily:"Arial",fontSize:"14px",fontStyle:"bold",color,stroke:"#121318",strokeThickness:3}).setOrigin(.5).setDepth(200000);this.scene.tweens.add({targets:label,y:y-26,alpha:0,duration:800,onComplete:()=>label.destroy()});}
   private banner(text:string):void {const el=document.createElement("div");el.className="rpg-toast";el.textContent=text;this.root.append(el);this.scene.time.delayedCall(2500,()=>el.remove());}
